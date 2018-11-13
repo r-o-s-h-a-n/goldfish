@@ -7,6 +7,10 @@ import string
 csv.field_size_limit(sys.maxsize)
 
 
+START_DATE = datetime.date(year = 2017, month = 1, day = 1)
+END_DATE = datetime.date(year = 2017, month = 6, day = 1)
+
+
 PUBS = ('New York Times'
         , 'Breitbart'
         , 'Reuters'
@@ -16,9 +20,6 @@ PUBS = ('New York Times'
         , 'Buzzfeed News'
         )
 
-
-START_DATE = datetime.date(year = 2017, month = 1, day = 1)
-END_DATE = datetime.date(year = 2017, month = 6, day = 1)
 
 #######################################################
 def strip_alpha(s):
@@ -71,13 +72,14 @@ for fn in os.listdir(data_dir):
 # get field names of data file
 with open(fps[0], 'rU') as f:
     f_reader = csv.reader(f)
-    field_names = next(f_reader)
+    fieldnames = next(f_reader)
 
 # search for data rows that fit search criteria and write relevant rows to outfile
-w = open('data/kaggle_scrape_big_sample.csv', 'w')
-w_writer = csv.DictWriter(w, field_names)
-w_writer.writeheader()
+# w = open('data/kaggle_scrape_big_sample.csv', 'w')
+# w_writer = csv.DictWriter(w, field_names)
+# w_writer.writeheader()
 
+curr_month = -1
 for fp in fps:
     with open(fp, 'rU') as  f:
         f_reader = csv.DictReader(f)
@@ -92,6 +94,21 @@ for fp in fps:
                     and pub_date >= START_DATE \
                     and pub_date <= END_DATE:
 
-                    w_writer.writerow(r)
+                    fn = 'data/kaggle_scrape_month/kaggle_scrape_month_'+str(pub_date.month)+'.csv'
+
+                    if not os.path.exists(fn):
+                        w = open(fn, 'w')
+                        w_writer = csv.DictWriter(w, fieldnames)
+                        w_writer.writeheader()
+
+                    if pub_date.month != curr_month:
+                        w.close()
+                        w = open(fn, 'a')
+                        w_writer = csv.DictWriter(w, fieldnames)
+                        w_writer.writerow(r)
+                        curr_month = pub_date.month
+
+                    if pub_date.month == curr_month:
+                        w_writer.writerow(r)
 
 w.close()
