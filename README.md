@@ -46,4 +46,4 @@ In addition, for each publication, day, and topic, we found the article (by that
 	* This is the data file that is used to visualize the headlines in tooltip
 
 6. Plot data
-	* Use the [tableau view] (https://public.tableau.com/profile/vivek.kumar6595#!/vizhome/InformationBubbles/AllTopics) we created. 
+	* Download the [tableau view](https://public.tableau.com/profile/vivek.kumar6595#!/vizhome/InformationBubbles/AllTopics) we created. 
