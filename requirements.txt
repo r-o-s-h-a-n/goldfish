@@ -1,0 +1,5 @@
+gensim==3.6.0
+spacy==2.0.18
+en-core-web-sm==2.0.0
+tqdm==4.28.1
+ujson==1.35
