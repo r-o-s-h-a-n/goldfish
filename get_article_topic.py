@@ -92,12 +92,5 @@ for date in tqdm(sorted_dates):
 
             hwriter.writerow(out)
 
-        for topic in unseen_topics:
-            out = {'date': date
-                , 'publication': publication
-                , 'topic': topic
-                , 'topic_to_pub_weight': 0.0
-                }
-
 g.close()
 h.close()
