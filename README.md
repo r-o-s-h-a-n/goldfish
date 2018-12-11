@@ -1,6 +1,6 @@
 # goldfish
 
-#### [Check out the visualization here](https://public.tableau.com/profile/vivek.kumar6595#!/vizhome/InformationBubbles/AllTopics)
+#### [Check out the visualization here](https://public.tableau.com/profile/roshan.ramkeesoon4307#!/vizhome/NewsTopics_0/NewsTopics)
 
 The internet has changed the way the news works. We wanted to investigate if information bubbles exist and what they look like. In other words, if you were only reading news from one media outlet, we want to know when you were introduced to certain topics as compared to others using other media outlets.
 
@@ -46,4 +46,4 @@ In addition, for each publication, day, and topic, we found the article (by that
 	* This is the data file that is used to visualize the headlines in tooltip
 
 6. Plot data
-	* Download the [tableau view](https://public.tableau.com/profile/vivek.kumar6595#!/vizhome/InformationBubbles/AllTopics) we created. 
+	* Download the [tableau workbook](https://public.tableau.com/profile/roshan.ramkeesoon4307#!/vizhome/NewsTopics_0/NewsTopics) we created. 
